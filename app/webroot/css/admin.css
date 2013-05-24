@@ -77,7 +77,7 @@ h1 {
 /*******HEADER*****/
 #header{
 	width: 100%;
-	height: 120px;
+	height: 60px;
 	background: url('../img/icons/bg_body.jpg');
 	margin-top: 40px;
 	float: left;
@@ -91,12 +91,11 @@ h1 {
 	border-radius: 0px;
 }
 #header .logo{
-	width: 200px;
-	height: 90px;
-	border-radius: 5px;
+	width: 300px;
 	margin: 15px;
-	background-color: #54BADC;
 	float: left;
+	font-size: 30px;
+	color: #FFF;
 }
 .top-links {
 	width: 400px;
@@ -105,7 +104,7 @@ h1 {
 }
 .top-links .btn-group{
 	float: right;
-	margin: 75px 10px;
+	margin: 15px 10px;
 	
 }
 #header .nav{
@@ -123,7 +122,7 @@ h1 {
 }
 /**********CONTENT************/
 #content{
-	min-height: 485px;	
+	min-height: 545px;	
 	width: 100%;	
 	float: left;
 	margin-top: -8px;		
