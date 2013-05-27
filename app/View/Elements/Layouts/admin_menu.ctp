@@ -1,9 +1,11 @@
-<div class="navbar navbar-fixed-top navbar-inverse navigator">
+<div class="navbar navbar-fixed-top navigator">
 	<div class="navbar-inner">
 		<ul class="nav">
-			<li class="divider-vertical"></li>
 			<li>
-				<a href="#">Dashboard</a>
+				<a href="#">
+					<i class="icon-home"></i>
+					Dashboard
+				</a>
 			</li>
 			<li class="divider-vertical"></li>
 			<li class="dropdown">
@@ -95,6 +97,6 @@
 			</li>
 			<li class="divider-vertical"></li>
 		</ul>
-		<div class="pull-right margin10" style="color: #DDD;">Last login: Thursday, May 23, 2013</div>
+		<div class="pull-right margin10">Last login: Thursday, May 23, 2013</div>
 	</div>
 </div>

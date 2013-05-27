@@ -17,12 +17,15 @@
 </head>
 
 <body>
-	<div id="sidebar">
-	</div><!-- // END SIDEBAR -->
 	
 	<div id="content">
 		<?php echo $this->fetch('content') ?>
 	</div><!-- // END CONTENT -->
+
+	<div id="lightbox">
+		<div class="loading">
+		</div>
+	</div>
 	<!-- javascript
 	================================================== -->
 	<?php echo $this->Html->script(array(

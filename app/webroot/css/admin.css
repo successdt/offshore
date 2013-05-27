@@ -111,9 +111,14 @@ h1 {
 #header .nav{
 	width: 800px;
 	margin: 0 auto;
+			
 }
 .navigator .divider-vertical{
 	margin: 0px;
+}
+.navigator .nav{
+	margin: 0px;
+	font-weight: bold;
 }
 .white-text{
 	color: #FFF;
@@ -139,4 +144,13 @@ h1 {
 	width: 960px;
 	margin: 20px auto;
 	text-align: center;
+}
+/********LOGIN************/
+.login-form{
+	width: 220px;
+	height: auto;
+	margin: 200px auto;
+	padding: 10px 70px;
+	border-radius: 5px;
+	background: url('../img/icons/bg_body.jpg');
 }
