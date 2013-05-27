@@ -1,5 +1,5 @@
 <div class="login-form btn-success">
-	<h1>Login to Admin Panel</h1>
+	<h1><?php echo __('Login to Admin Panel') ?></h1>
 	<hr />
 	<?php 
 	echo $this->Form->create('User');

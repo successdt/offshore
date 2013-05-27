@@ -14,4 +14,7 @@ class UiController extends AppController {
 	public function login(){
 		$this->layout = 'not_login';
 	}
+	public function dashboard(){
+		$this->layout = 'admin';
+	}
 }
