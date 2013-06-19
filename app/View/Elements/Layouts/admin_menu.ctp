@@ -2,7 +2,7 @@
 	<div class="navbar-inner">
 		<ul class="nav">
 			<li>
-				<a href="#">
+				<a href="<?php echo $this->Html->url(array('controller' => 'ui', 'action' => 'dashboard')) ?>">
 					<i class="icon-home"></i>
 					Dashboard
 				</a>
@@ -18,7 +18,7 @@
 						<a href="#">New Category</a>
 					</li>
 					<li>
-						<a href="#">Manage Categories</a>
+						<a href="<?php echo $this->Html->url(array('controller' => 'ui', 'action' => 'catMan')) ?>">Manage Categories</a>
 					</li>
 				</ul>
 				
@@ -31,10 +31,10 @@
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="#">New Product</a>
+						<a href="<?php echo $this->Html->url(array('controller' => 'ui', 'action' => 'newProduct')) ?>">New Product</a>
 					</li>
 					<li>
-						<a href="#">Manage Products</a>
+						<a href="<?php echo $this->Html->url(array('controller' => 'ui', 'action' => 'productMan')) ?>">Manage Products</a>
 					</li>
 					<li>
 						<a href="#">Promotion</a>
@@ -55,7 +55,7 @@
 						<a href="#">New Page</a>
 					</li>
 					<li>
-						<a href="#">Manage Pages</a>
+						<a href="<?php echo $this->Html->url(array('controller' => 'ui', 'action' => 'pageMan')) ?>">Manage Pages</a>
 					</li>
 				</ul>
 			</li>
@@ -70,7 +70,7 @@
 						<a href="#">New User</a>
 					</li>
 					<li>
-						<a href="#">Manage Users</a>
+						<a href="<?php echo $this->Html->url(array('controller' => 'ui', 'action' => 'userMan')) ?>">Manage Users</a>
 					</li>
 				</ul>
 			</li>

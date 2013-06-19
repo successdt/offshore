@@ -14,7 +14,7 @@
 					</thead>
 					<tbody >
 						<tr>
-							<td>DT1</td><td>Nokia Lumia 9200000000000000000000000000000000000</td><td>5</td>
+							<td>DT1</td><td>Nokia Lumia 920</td><td>5</td>
 						</tr>
 						<tr>
 							<td>DT2</td><td>Galaxy S4</td><td>3</td>
