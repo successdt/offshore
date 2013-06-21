@@ -31,5 +31,17 @@ class UiController extends AppController {
 	}
 	public function newProduct(){
 		$this->layout = 'admin';
+	}	
+	public function newCat(){
+		$this->layout = 'admin';
+	}
+	public function newPage(){
+		$this->layout = 'admin';
+	}
+	public function newUser(){
+		$this->layout = 'admin';
+	}
+	public function fileMan(){
+		$this->layout = 'admin';
 	}
 }

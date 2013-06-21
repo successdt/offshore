@@ -15,7 +15,7 @@
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="#">New Category</a>
+						<a href="<?php echo $this->Html->url(array('controller' => 'ui', 'action' => 'newCat')) ?>">New Category</a>
 					</li>
 					<li>
 						<a href="<?php echo $this->Html->url(array('controller' => 'ui', 'action' => 'catMan')) ?>">Manage Categories</a>
@@ -52,7 +52,7 @@
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="#">New Page</a>
+						<a href="<?php echo $this->Html->url(array('controller' => 'ui', 'action' => 'newPage')) ?>">New Page</a>
 					</li>
 					<li>
 						<a href="<?php echo $this->Html->url(array('controller' => 'ui', 'action' => 'pageMan')) ?>">Manage Pages</a>
@@ -82,7 +82,7 @@
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="#">File Manager</a>
+						<a href="<?php echo $this->Html->url(array('controller' => 'ui', 'action' => 'fileMan')) ?>">File Manager</a>
 					</li>
 					<li>
 						<a href="#">Social Connection</a>

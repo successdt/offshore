@@ -286,7 +286,9 @@ h1 {
 	float: left;
 }
 .new-product #ProductName, .new-product textarea{
-	width: 94%;
+	width: 100%;
+	margin: 0px;
+	border-radius: 0px;
 }
 
 .new-product .side-input{
@@ -294,21 +296,20 @@ h1 {
 	margin: 10px;
 	float: left;
 }
-.new-product .side-input .side-input-block{
+.new-product .side-input .side-input-block, .new-product .main-input-block{
 	background-color: #F6F6F6;
 	border-radius: 4px;
 	border: 1px solid #d4d4d4;
 	margin-bottom: 20px;
+	overflow: hidden;
 }
 .side-input-block table{
 	width: 100%;
-	
-	
 }
 .side-input-block table input{
 	width: 98%;
 }
-.new-product .side-input .side-input-title{
+.new-product .side-input .side-input-title, .main-input-title{
 	color: #333;
 	padding: 10px;
 	font-size: 16px;
@@ -333,13 +334,19 @@ h1 {
 	padding: 10px;
  	font-size: 13px;
 }
+.category-list-input{
+	list-style-type: none;
+}
+.category-list-input input{
+	margin: 0px 5px 7px 0px;
+}
 /**************TINY MCE***********/
 .mceEditor table {
 	max-width:none; /* Bug in computation of fullscreen */
 }
 
 .mceEditor table.mceLayout {
-	width:95% !important;
+	width:100% !important;
 	height:auto !important;
 } 
 
