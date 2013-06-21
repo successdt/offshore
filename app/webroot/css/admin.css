@@ -355,3 +355,10 @@ table.mceToolbar { float:left; }
 body .mceToolbar div {
 	white-space:normal;
 }
+/*************FILE MANAGER************/
+.file-man-preview{
+	overflow-y: auto;
+}
+.file-man-preview img{
+	max-width: 100%;
+}
