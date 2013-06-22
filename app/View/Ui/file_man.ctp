@@ -6,7 +6,10 @@
 				<span>Folder Name</span>
 				<span class="pull-right" style="margin-top: -5px;">
 					<a href="#" class="btn">
-						<?php echo __('Up') ?>
+						<?php echo __('...') ?>
+					</a>
+					<a href="#" class="btn">
+						<?php echo __('Upload') ?>
 					</a>
 					<a href="#" class="btn">
 						<?php echo __('Rename') ?>
@@ -115,6 +118,7 @@
 				<?php echo __('Preview') ?>
 			</div>
 			<div class="side-input-content">
+				<input type="text" value="http://wwww.example.com/test.jpg" style="width: 96%;" />
 				<div class="file-man-preview">
 					<?php echo $this->Html->image('icons/header_bg.jpg') ?>
 				</div>

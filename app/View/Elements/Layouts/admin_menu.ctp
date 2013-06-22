@@ -61,18 +61,7 @@
 			</li>
 			<li class="divider-vertical"></li>
 			<li class="dropdown">
-				<a href="#"  class="dropdown-toggle" data-toggle="dropdown">
-					User
-					<b class="caret"></b>
-				</a>
-				<ul class="dropdown-menu">
-					<li>
-						<a href="#">New User</a>
-					</li>
-					<li>
-						<a href="<?php echo $this->Html->url(array('controller' => 'ui', 'action' => 'userMan')) ?>">Manage Users</a>
-					</li>
-				</ul>
+				<a href="<?php echo $this->Html->url(array('controller' => 'ui', 'action' => 'userMan')) ?>">Users</a>
 			</li>
 			<li class="divider-vertical"></li>
 			<li class="dropdown">
@@ -91,7 +80,7 @@
 						<a href="#">Contact</a>
 					</li>
 					<li>
-						<a href="#">Config</a>
+						<a href="<?php echo $this->Html->url(array('controller' => 'ui', 'action' => 'configure')) ?>">Configure</a>
 					</li>
 				</ul>
 			</li>

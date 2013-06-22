@@ -296,7 +296,7 @@ h1 {
 	margin: 10px;
 	float: left;
 }
-.new-product .side-input .side-input-block, .new-product .main-input-block{
+.new-product .side-input .side-input-block, .new-product .main-input-block, .admin-config .main-input-block{
 	background-color: #F6F6F6;
 	border-radius: 4px;
 	border: 1px solid #d4d4d4;
@@ -357,8 +357,18 @@ body .mceToolbar div {
 }
 /*************FILE MANAGER************/
 .file-man-preview{
-	overflow-y: auto;
 }
 .file-man-preview img{
 	max-width: 100%;
+}
+table.file-man tr:hover{
+	background-color: #EEE;
+}
+/****************CONFIGURE*******************/
+.admin-config{
+	width: 46%;
+	margin: 10px;
+}
+.admin-config .main-input-content input, .admin-config .main-input-content textarea{
+	width: 90%;
 }

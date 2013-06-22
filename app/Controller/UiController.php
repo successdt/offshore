@@ -44,4 +44,7 @@ class UiController extends AppController {
 	public function fileMan(){
 		$this->layout = 'admin';
 	}
+	public function configure(){
+		$this->layout = 'admin';
+	}
 }
