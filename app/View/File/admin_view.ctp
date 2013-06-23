@@ -83,7 +83,19 @@
 					</form>
 				</div>
 			</div>
-			
+			<div class="main-input-block hidden-upload" style="display: none ;">
+				<div class="main-input-title">
+					<?php echo __('Upload') ?>
+					<span class="pull-right" style="margin-top: -5px;">
+						<a href="javascript:cancelUpload()" class="btn btn-danger">
+							<i class="icon icon-remove"></i>
+						</a>												
+					</span>
+				</div>
+				<div class="main-input-content">
+					<iframe src="<?php echo $this->Html->url(array('controller' => 'file', 'action' => 'upload', '?' => array('path' => $data['current_path']))) ?>"></iframe>
+				</div>
+			</div>			
 			<div class="main-input-block hidden-copy" style="display: none ;">
 				<div class="main-input-title">
 					<?php echo __('Copy') ?>
@@ -122,7 +134,7 @@
 								'class' => 'btn'
 							)
 						) ?>
-						<a href="#" class="btn">
+						<a href="javascript:upload()" class="btn">
 							<?php echo __('Upload') ?>
 						</a>
 						<a href="javascript:newdir()" class="btn">
@@ -335,6 +347,12 @@
 	}
 	function cancelCreateDir(){
 		$('.hidden-newdir').slideUp();
+	}
+	function upload(){
+		$('.hidden-upload').slideDown();
+	}
+	function cancelUpload(){
+		$('.hidden-upload').slideUp();
 	}
 	<?php echo $this->Html->scriptEnd() ?>
 <?php endif; ?>

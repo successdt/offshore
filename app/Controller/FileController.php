@@ -52,8 +52,13 @@ class FileController extends AppController{
 		if(isset($this->request->data) && ($data = $this->request->data)){
 			$files = json_decode($data['list-file']);
 			foreach($files as $file){
-				rmdir($dir . DS . $file);
-				unlink($dir . DS . $file);
+				if(is_dir($dir . DS . $file)){
+					rmdir($dir . DS . $file);
+				}
+				else {
+					unlink($dir . DS . $file);
+				}
+				
 			}
 		}
 		$this->redirect(array('controller' => 'file', 'action' => 'view'));	
@@ -113,6 +118,30 @@ class FileController extends AppController{
 				
 		}
 		$this->redirect(array('controller' => 'file', 'action' => 'view', '?' => array('path' => $param)));			
+	}
+	public function admin_upload(){
+		$this->layout = 'popup';
+		$dir = WWW_ROOT . 'img';
+		$data = array(
+			'path' => '',
+			'success' => false
+		);
+		$imgFormat = array('image/gif', 'image/jpeg', 'image/pjeg');
+		if(isset($_GET['path']) && $uploadPath = $_GET['path']){
+			$data['path'] = $uploadPath;
+		}
+		if (!empty($_FILES) && in_array($_FILES["data"]["type"]["file"], $imgFormat)) {
+			$path = $dir . DS . $uploadPath;
+			if (!is_dir($path)) {
+				mkdir($path, 0777, true);
+				chmod($path, 0777);
+			}
+			
+			$tmp = $path . DS . $_FILES["data"]["name"]["file"];			
+			$data['success'] = move_uploaded_file($_FILES['data']['tmp_name']["file"], $tmp);
+		}
+		$this->set('data', $data);
+		
 	}
 	public function getListFiles($dir){
 		$files = scandir($dir);

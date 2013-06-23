@@ -364,6 +364,18 @@ body .mceToolbar div {
 table.file-man tr:hover{
 	background-color: #EEE;
 }
+.upload-wrapper{
+	margin: 10px;
+}
+.upload-wrapper input{
+	float: left;
+	margin-left: 10px;
+}
+.hidden-upload  iframe{
+	width: 100%;
+	box-shadow: none;
+	border: none;
+}
 /****************CONFIGURE*******************/
 .admin-config{
 	width: 46%;
