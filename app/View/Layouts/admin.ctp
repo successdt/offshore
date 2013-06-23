@@ -23,12 +23,16 @@
 			<div class="logo">
 				<?php echo $this->Html->image('icons/skura.png', array('width' => '36', 'height' => '36')) ?>
 				<span class="margin10">Admin Panel</span>
-				
 			</div>
 			<div class="top-links">
 				<div class="btn-group">
 					<a href="#" class="btn btn-success">Admin</a>
-					<a href="#" class="btn btn-success">Logout</a>
+					<?php echo $this->Html->link(__('Logout'), array(
+						'controller' => 'users',
+						'action' => 'logout'
+					), array(
+						'class' => 'btn btn-success'
+					)) ?>>
 				</div>
 			</div>
 		</div>

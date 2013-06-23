@@ -163,6 +163,7 @@ h1 {
 	padding: 10px 70px;
 	border-radius: 5px;
 	background: url('../img/icons/bg_body.jpg');
+	box-shadow: 3px 3px 7px #333;
 }
 
 /***********DASHBOARD***********/

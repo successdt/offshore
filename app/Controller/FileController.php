@@ -1,4 +1,8 @@
 <?php
+/**
+ * admin file manager
+ * @author duythanhdao@live.com
+ */
 class FileController extends AppController{
 	public $name = 'file';
 	public $uses = array();
@@ -126,18 +130,20 @@ class FileController extends AppController{
 			'path' => '',
 			'success' => false
 		);
-		$imgFormat = array('image/gif', 'image/jpeg', 'image/pjeg');
+		$imgFormat = array('image/gif', 'image/jpeg', 'image/pjeg', 'image/png');
 		if(isset($_GET['path']) && $uploadPath = $_GET['path']){
 			$data['path'] = $uploadPath;
 		}
 		if (!empty($_FILES) && in_array($_FILES["data"]["type"]["file"], $imgFormat)) {
-			$path = $dir . DS . $uploadPath;
+			$path = $dir . DS . $data['path'];
 			if (!is_dir($path)) {
 				mkdir($path, 0777, true);
 				chmod($path, 0777);
 			}
 			
-			$tmp = $path . DS . $_FILES["data"]["name"]["file"];			
+			$tmp = $path . DS . $_FILES["data"]["name"]["file"];
+			
+						
 			$data['success'] = move_uploaded_file($_FILES['data']['tmp_name']["file"], $tmp);
 		}
 		$this->set('data', $data);
