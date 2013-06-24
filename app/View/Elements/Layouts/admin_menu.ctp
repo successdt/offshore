@@ -71,7 +71,7 @@
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="<?php echo $this->Html->url(array('controller' => 'ui', 'action' => 'fileMan')) ?>">File Manager</a>
+						<a href="<?php echo $this->Html->url(array('controller' => 'file', 'action' => 'view')) ?>">File Manager</a>
 					</li>
 					<li>
 						<a href="#">Social Connection</a>
