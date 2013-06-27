@@ -149,6 +149,28 @@ class FileController extends AppController{
 		$this->set('data', $data);
 		
 	}
+	
+	public function admin_productUpload(){
+		$this->layout = 'popup';
+		$dir = WWW_ROOT . 'img/product';
+		$data = array(
+			'path' => '',
+			'success' => false
+		);
+		$imgFormat = array('image/gif', 'image/jpeg', 'image/pjeg', 'image/png');
+		if (!empty($_FILES) && in_array($_FILES["data"]["type"]["file"], $imgFormat)) {
+			if (!is_dir($dir)) {
+				mkdir($dir, 0777, true);
+				chmod($dir, 0777);
+			}
+			
+			$tmp = $_FILES["data"]["name"]["file"] . '_' . date('U', strtotime(time()));
+			$data['success'] = move_uploaded_file($_FILES['data']['tmp_name']["file"], $dir . DS . $tmp);
+			$data['path'] = 'img/product/' . $tmp;
+		}
+		$this->set('data', $data);
+		
+	}
 	public function getListFiles($dir){
 		$files = scandir($dir);
 		$listFile = array(

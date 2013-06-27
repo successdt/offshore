@@ -55,7 +55,7 @@
 	<!-- javascript
 	================================================== -->
 	<?php echo $this->Html->script(array(
-		'live',
+//		'live',
 		'jquery.min',
 		'bootstrap.min',
 		'admin'

@@ -31,7 +31,7 @@
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="<?php echo $this->Html->url(array('controller' => 'ui', 'action' => 'newProduct')) ?>">New Product</a>
+						<a href="<?php echo $this->Html->url(array('controller' => 'Product', 'action' => 'add')) ?>">New Product</a>
 					</li>
 					<li>
 						<a href="<?php echo $this->Html->url(array('controller' => 'ui', 'action' => 'productMan')) ?>">Manage Products</a>
