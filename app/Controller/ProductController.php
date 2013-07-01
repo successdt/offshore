@@ -34,13 +34,16 @@ class ProductController extends AppController {
 	                $this->Product->save();
 	                
 	                //save category_product
-	                foreach ($saveData['category_id'] as $category){
-	                	$this->CategoryProduct->create();
-	                	$this->CategoryProduct->save(array(
-							'category_id' => $category,
-							'product_id' => $id
-						));
+	                if(isset($saveData['category_id'] )){
+		                foreach ($saveData['category_id'] as $category){
+		                	$this->CategoryProduct->create();
+		                	$this->CategoryProduct->save(array(
+								'category_id' => $category,
+								'product_id' => $id
+							));
+		                }	                	
 	                }
+
 	                //$this->redirect(array('action' => 'index'));
 	            } else {
 	                $this->Session->setFlash(__('The product could not be saved. Please, try again.'));
@@ -52,6 +55,47 @@ class ProductController extends AppController {
         }
         $this->set('data', $data);
     }
+  	
+  	/**
+  	 * manage product
+  	 * @author duythanhdao@live.com
+  	 */
+	public function admin_manage() {
+		if(isset($_GET['category_id']) && $_GET['category_id']) {
+			$this->paginate = array(
+				'limit' => 3,
+				'order' => array('id' => 'desc'),
+				'conditions' => array(
+					'id' => $this->CategoryProduct ->find('list', array(
+						'conditions' => array(
+							'category_id' => $_GET['category_id']
+						),
+						'fields' => array('product_id')
+					))
+				),
+				'fields' => array('id','sku', 'name', 'created_at', 'short_description', 'price', 'qty')
+			);			
+		}
+		else {
+			$this->paginate = array(
+				'limit' => 3,
+				'order' => array('id' => 'desc'),
+				'fields' => array('id','sku', 'name', 'created_at', 'short_description', 'price', 'qty')
+			);			
+		}
+
+		$data = $this->paginate('Product');
+
+		$i = 0;
+		$sort = $this->passedArgs;
+		foreach($data as $product){
+			$catName = $this->CategoryProduct->getProductCategoriesName($product['Product']['id']);
+			$data[$i]['Product']['categories'] = implode(',', $catName);
+			$i++;
+		}
+		$listCategory = $this->Category->getListCategory();
+		$this->set('data', array('product' => $data, 'category' => $listCategory, 'sort' => $sort));
+	}
     
     /**
      * upload product image

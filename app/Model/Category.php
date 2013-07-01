@@ -22,4 +22,11 @@ class Category extends AppModel{
 		}
 		return $return;
 	}
+	
+	public function getListCategory(){
+		$categories = $this->find('list', array(
+			'fields' => array('id', 'name')
+		));
+		return $categories;
+	}
 }

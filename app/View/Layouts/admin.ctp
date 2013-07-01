@@ -21,7 +21,7 @@
 	<div id="header" class="navbar">
 		<div class="top-banner">
 			<div class="logo">
-				<?php echo $this->Html->image('icons/skura.png', array('width' => '36', 'height' => '36')) ?>
+				<?php echo $this->Html->image('icons/shopping_cart.png', array('width' => '36', 'height' => '36')) ?>
 				<span class="margin10">Admin Panel</span>
 			</div>
 			<div class="top-links">

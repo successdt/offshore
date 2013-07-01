@@ -106,7 +106,7 @@
 					<tr>
 						<td>
 							<div style="height: 0px; overflow: hidden;">
-									<?php echo $this->Form->input('file', array('type' => 'file', 'label' => false, 'id' => 'fileInput')) ?>
+								<?php echo $this->Form->input('file', array('type' => 'file', 'label' => false, 'id' => 'fileInput')) ?>
 							</div>
 							<input id="disabledInput" type="text" placeholder="<?php echo __('File path') ?>" disabled>
 						</td>

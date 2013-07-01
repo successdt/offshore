@@ -358,10 +358,18 @@ p.error em {
 	background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
 	background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
 	background-repeat: repeat-x;
-	cursor: pointer;
+	
 }
-.manager-table th.active{
+.manager-table th.sort-enable{
+	cursor: pointer;	
+}
+.manager-table th.active, .manager-table th.sort-enable:hover{
 	background: #EEE;
+}
+.manager-table th a{
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
 }
 .manager-table{
 	text-align: center;
@@ -475,4 +483,8 @@ table.file-man tr:hover{
 }
 .admin-config .main-input-content input, .admin-config .main-input-content textarea{
 	width: 90%;
+}
+/*****************PAGINATOR**************/
+.page-number a {
+	text-decoration: none;
 }

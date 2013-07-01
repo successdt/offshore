@@ -19,7 +19,7 @@ class Product extends AppModel {
                 'message' => 'SKU is empty or already exist'
             )
         ),
-    );
+    );    
     
 	/**
 	 * check sku exist
@@ -29,6 +29,7 @@ class Product extends AppModel {
 	   $count = $this->find('count', array(
 	      'conditions' => array('sku' => $sku)
 		));
-	   return $count == 0;
+		
+		return $count == 0;
 	}
 }
