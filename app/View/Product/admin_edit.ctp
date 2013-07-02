@@ -12,7 +12,8 @@
 		<div class="main-input-block" style="padding: 0px;">
 			<?php echo $this->Form->input('name', array(
 				'placeholder' => __('Product name'),
-				'style' => 'width:100%; margin:0px;'
+				'style' => 'width:100%; margin:0px;',
+				'value' => $data['Product']['name']
 			)) ?>
 		</div>
 		<div class="main-input-block">
@@ -20,7 +21,11 @@
 				<?php echo __('Product Description') ?>
 			</div>
 			<div class="main-input-content">
-				<?php echo $this->Form->input('description', array('type' => 'textarea', 'class' => 'desc')) ?>
+				<?php echo $this->Form->input('description', array(
+					'type' => 'textarea',
+					'class' => 'desc',
+					'value' => $data['Product']['description']
+				)) ?>
 			</div>
 		</div>
 		<div class="main-input-block">
@@ -28,7 +33,11 @@
 				<?php echo __('Short Description') ?>
 			</div>
 			<div class="main-input-content">
-				<?php echo $this->Form->input('short_description', array('type' => 'textarea', 'class' => 'short_desc')) ?>
+				<?php echo $this->Form->input('short_description', array(
+					'type' => 'textarea',
+					'class' => 'short_desc',
+					'value' => $data['Product']['short_description']
+				)) ?>
 			</div>
 		</div>
 		<div class="main-input-block">
@@ -55,15 +64,15 @@
 				<table>
 					<tr>
 						<td><?php echo __('Price') ?></td>
-						<td><?php echo $this->Form->input('price') ?></td>
+						<td><?php echo $this->Form->input('price', array('value' => $data['Product']['price'])) ?></td>
 					</tr>
 					<tr>
 						<td><?php echo __('SKU') ?></td>
-						<td><?php echo $this->Form->input('sku') ?></td>
+						<td><?php echo $this->Form->input('sku', array('value' => $data['Product']['sku'], 'disabled' => 'disabled')) ?></td>
 					</tr>
 					<tr>
 						<td><?php echo __('Qty') ?></td>
-						<td><?php echo $this->Form->input('qty') ?></td>
+						<td><?php echo $this->Form->input('qty', array('value' => $data['Product']['qty'])) ?></td>
 					</tr>
 					<tr>
 						<td><?php echo __('In stock') ?></td>
@@ -71,7 +80,7 @@
 							<?php echo $this->Form->input('is_in_stock', array(
 								'type' => 'checkbox',
 								'style' => 'width: auto',
-								'checked' => 'checked'
+								'checked' => $data['Product']['is_in_stock'] ? 'checked' : ''
 							))
 							?>
 						</td>
@@ -115,9 +124,16 @@
 					<tr>
 						<td><?php echo $this->Form->input('image_label', array('placeholder' => 'Image label')) ?></td>
 					</tr>
-					<td class="image-preview">
-						
-					</td>
+					<tr>
+						<td class="image-preview">
+							<?php
+							if(isset($data['Product']['image']) && $data['Product']['image']){
+								echo $this->Html->image($data['Product']['image'], array(
+									'alt' => $data['Product']['image_label']
+								));							
+							}?>
+						</td>
+					</tr>
 				</table>				
 			</div>
 		</div>
@@ -162,5 +178,4 @@ function readURL(input) {
 		reader.readAsDataURL(input.files[0]);
 	}
 }
-
 <?php echo $this->Html->scriptEnd() ?>

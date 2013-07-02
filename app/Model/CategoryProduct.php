@@ -22,9 +22,8 @@ class CategoryProduct extends AppModel {
 			'conditions' => array(
 				'CategoryProduct.product_id' => $productId
 			),
-			'fields' => array('Category.name')
+			'fields' => array('CategoryProduct.category_id', 'Category.name')
 		));
-		
 		return $data;
 	}	
 }

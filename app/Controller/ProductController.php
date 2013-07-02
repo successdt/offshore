@@ -122,6 +122,63 @@ class ProductController extends AppController {
 		$this->redirect(array('controller' => 'product', 'action' => 'manage'));	
 	}
 	
+	/**
+	 * edit product
+	 * @author duythanhdao@live.com
+	 */
+	public function admin_edit($id = null){
+		$data = array();
+		
+    	if ($this->request->is('post') && $id) {
+    		$saveData = $this->request->data; 
+    		if(isset($saveData['Product']['description']) && $saveData['Product']['description']) {
+	            $this->Product->id = $id;
+				//save product image
+				$image = $this->saveProductPhoto($id, $_FILES);
+				if($image['path']){
+					$saveData['Product']['image'] = $image['path'];
+					$saveData['Product']['thumbnail'] = $image['thumb_path'];					
+				}
+				unset($saveData['Product']['sku']);
+				
+	            if ($this->Product->save($saveData['Product'])) {
+	                $this->Session->setFlash(__('The product has been saved'));
+	                
+	                //save category_product
+	                if(isset($saveData['category_id'] )){
+	                	$this->CategoryProduct->deleteAll(array('product_id' => $id));
+		                foreach ($saveData['category_id'] as $category){
+		                	$this->CategoryProduct->create();
+		                	$this->CategoryProduct->save(array(
+								'category_id' => $category,
+								'product_id' => $id
+							));
+		                }	                	
+	                }
+
+	            } else {
+	                $this->Session->setFlash(__('The product could not be saved. Please, try again.'));
+	            }    			
+    		}
+    		else {
+    			$this->Session->setFlash(__('The product description is required.'));
+    		}
+        }
+        
+		if($id){
+			$product = $this->Product->find('first', array(
+				'conditions' => array(
+					'id' => $id
+				)
+			));
+			$listCategory = $this->Category->getList();
+			$data['category'] = $listCategory;
+			$data['Product'] = $product['Product'];
+			$data['category_product'] = $this->CategoryProduct->getProductCategoriesName($id);
+		}
+		$this->set('data', $data);
+	}
+	
     /**
      * upload product image
      * @author duythanhdao@live.com
