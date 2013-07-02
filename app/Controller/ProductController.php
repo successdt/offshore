@@ -1,7 +1,7 @@
 <?php
 class ProductController extends AppController {
 	public $name = 'product';
-	public $uses = array('Product', 'Category', 'CategoryProduct');
+	public $uses = array('Product', 'Category', 'CategoryProduct', 'CouponProduct', 'SearchFulltext');
     public function beforeFilter() {
         parent::beforeFilter();
         //$this->Auth->allow('admin_add', 'admin_login');
@@ -97,6 +97,31 @@ class ProductController extends AppController {
 		$this->set('data', array('product' => $data, 'category' => $listCategory, 'sort' => $sort));
 	}
     
+    /**
+     * delete product
+     * @author duythanhdao@live.com
+     */
+	public function admin_delete(){
+		
+		if($this->request->is('post')){
+			$params = $this->request->data;
+			if(isset($params['Product']['id'])){
+				$listId = $params['Product']['id'];
+				$this->Product->delete($listId);
+				$this->CategoryProduct->deleteAll(array(
+					'product_id' => $listId
+				));
+				$this->CouponProduct->deleteAll(array(
+					'product_id' => $listId
+				));
+				$this->SearchFulltext->deleteAll(array(
+					'product_id' => $listId
+				));
+			}
+		}
+		$this->redirect(array('controller' => 'product', 'action' => 'manage'));	
+	}
+	
     /**
      * upload product image
      * @author duythanhdao@live.com
