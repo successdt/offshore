@@ -47,15 +47,15 @@
 			<li class="divider-vertical"></li>
 			<li class="dropdown">
 				<a href="#"  class="dropdown-toggle" data-toggle="dropdown">
-					Page
+					<?php echo __('Page') ?>
 					<b class="caret"></b>
 				</a>
 				<ul class="dropdown-menu">
 					<li>
-						<a href="<?php echo $this->Html->url(array('controller' => 'ui', 'action' => 'newPage')) ?>">New Page</a>
+						<a href="<?php echo $this->Html->url(array('controller' => 'page', 'action' => 'add')) ?>"><?php echo __('New Page') ?></a>
 					</li>
 					<li>
-						<a href="<?php echo $this->Html->url(array('controller' => 'ui', 'action' => 'pageMan')) ?>">Manage Pages</a>
+						<a href="<?php echo $this->Html->url(array('controller' => 'page', 'action' => 'manage')) ?>"><?php echo __('Manage Pages') ?></a>
 					</li>
 				</ul>
 			</li>

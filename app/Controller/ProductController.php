@@ -22,6 +22,8 @@ class ProductController extends AppController {
 	            if ($this->Product->save($saveData)) {
 	                $this->Session->setFlash(__('The product has been saved'));
 	                $id = $this->Product->getLastInsertID();
+	                //update search fulltext
+	                $this->addFulltextSearch($id, $saveData);
 	                //save product image
 	                $image = $this->saveProductPhoto($id, $_FILES);
 	                //update product data
@@ -139,6 +141,7 @@ class ProductController extends AppController {
 					$saveData['Product']['image'] = $image['path'];
 					$saveData['Product']['thumbnail'] = $image['thumb_path'];					
 				}
+				$this->addFulltextSearch($id, $saveData);
 				unset($saveData['Product']['sku']);
 				
 	            if ($this->Product->save($saveData['Product'])) {
@@ -155,6 +158,7 @@ class ProductController extends AppController {
 							));
 		                }	                	
 	                }
+	                
 
 	            } else {
 	                $this->Session->setFlash(__('The product could not be saved. Please, try again.'));
@@ -233,4 +237,25 @@ class ProductController extends AppController {
 		}
 		return  $data;
     }
+    
+    /**
+     * update product search full text
+     * @author duythanhdao@live.com
+     */
+	public function addFulltextSearch($productId, $data){
+		$parts = array('name', 'sku', 'description', 'short_description', 'image_label');
+		$text = '';
+		
+		foreach($parts as $part){
+			if(isset($data['Product'][$part]))
+				$text .= ' ' . $data['Product'][$part];
+		}
+		
+		$this->SearchFulltext->deleteAll(array('product_id' => $productId));
+		$this->SearchFulltext->create();
+		$this->SearchFulltext->save(array(
+			'product_id' => $productId,
+			'data_index' => $text
+		));
+	}
 }
