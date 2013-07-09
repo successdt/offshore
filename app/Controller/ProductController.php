@@ -20,7 +20,7 @@ class ProductController extends AppController {
     		if(isset($saveData['Product']['description']) && $saveData['Product']['description']) {
 	            $this->Product->create();
 	            if ($this->Product->save($saveData)) {
-	                $this->Session->setFlash(__('The product has been saved'));
+	                $this->Session->setFlash(__('The product has been saved'), 'flash_success');
 	                $id = $this->Product->getLastInsertID();
 	                //update search fulltext
 	                $this->addFulltextSearch($id, $saveData);
@@ -145,7 +145,7 @@ class ProductController extends AppController {
 				unset($saveData['Product']['sku']);
 				
 	            if ($this->Product->save($saveData['Product'])) {
-	                $this->Session->setFlash(__('The product has been saved'));
+	                $this->Session->setFlash(__('The product has been saved'), 'flash_success');
 	                
 	                //save category_product
 	                if(isset($saveData['category_id'] )){

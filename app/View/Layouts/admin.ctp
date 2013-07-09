@@ -26,7 +26,7 @@
 			</div>
 			<div class="top-links">
 				<div class="btn-group">
-					<a href="#" class="btn btn-success">Admin</a>
+					<a href="#" class="btn btn-success"><?php echo $this->Session->read('Auth.User.username'); ?></a>
 					<?php echo $this->Html->link(__('Logout'), array(
 						'controller' => 'users',
 						'action' => 'logout'

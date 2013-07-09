@@ -41,9 +41,15 @@ class AppController extends Controller {
     );
 
     public function beforeFilter() {
+    	
         if (isset($this->params['prefix']) && $this->params['prefix'] == 'admin') {
             $this->layout = 'admin';
         }
+        
+		if($this->Auth->loggedIn() && $this->Auth->user('is_active') == 0){
+	       $this->Session->setFlash('Your account has been deactived!');    
+	       $this->redirect($this->Auth->logout());
+		}
     }
 }
 

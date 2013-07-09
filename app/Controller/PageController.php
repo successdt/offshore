@@ -18,7 +18,7 @@ class PageController extends AppController {
     		$saveData = $this->request->data;
             $this->Page->create();
             if ($this->Page->save($saveData)) {
-                $this->Session->setFlash(__('The page has been saved'));
+                $this->Session->setFlash(__('The page has been saved'), 'flash_success');
                 $this->redirect(array('controller' => 'page', 'action' => 'manage'));
             } else {
                 $this->Session->setFlash(__('The product could not be saved. Please, try again.'));
@@ -56,7 +56,7 @@ class PageController extends AppController {
             $this->Page->id = $pageId;
 			
             if ($this->Page->save($saveData['Page'])) {
-                $this->Session->setFlash(__('The page has been saved'));
+                $this->Session->setFlash(__('The page has been saved'), 'flash_success');
                 
             } else {
                 $this->Session->setFlash(__('The page could not be saved. Please, try again.'));

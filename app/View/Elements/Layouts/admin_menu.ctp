@@ -61,7 +61,10 @@
 			</li>
 			<li class="divider-vertical"></li>
 			<li class="dropdown">
-				<a href="<?php echo $this->Html->url(array('controller' => 'ui', 'action' => 'userMan')) ?>">Users</a>
+				<?php echo $this->Html->link(__('Users'), array(
+					'controller' => 'users',
+					'action' => 'manage'
+				)) ?>
 			</li>
 			<li class="divider-vertical"></li>
 			<li class="dropdown">

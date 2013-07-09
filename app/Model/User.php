@@ -3,8 +3,8 @@ class User extends AppModel {
     public $validate = array(
         'username' => array(
             'required' => array(
-                'rule' => array('notEmpty'),
-                'message' => 'A username is required'
+                'rule' => array('uniqueClick', 'notEmpty'),
+                'message' => 'Username is empty or already exist'
             )
         ),
         'password' => array(
@@ -20,5 +20,16 @@ class User extends AppModel {
 	        $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
 	    }
 	    return true;
+	}
+
+	/**
+	 * check sku exist
+	 * @author duythanhdao@live.com
+	 */
+    public function uniqueClick($username) {
+	   $count = $this->find('count', array(
+	      'conditions' => array('username' => $username)
+		));
+		return $count == 0;
 	}
 }
